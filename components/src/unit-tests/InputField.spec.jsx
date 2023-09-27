@@ -15,7 +15,6 @@ describe("InputField", () => {
   test("renders input field with a default value", () => {
     const defaultValue = "Default Value";
     render(<InputField value={defaultValue} />);
-
     const inputElement = screen.getByDisplayValue(defaultValue);
     expect(inputElement).toBeInTheDocument();
   });
