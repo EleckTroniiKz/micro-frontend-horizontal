@@ -10,10 +10,17 @@ import HomeContent from "home/HomeContent";
 import UserDetailEditor from "userdetailseditor/UserDetailEditor";
 
 export default function PageRootLayout() {
+  const FooterURL =
+    "https://github.com/EleckTroniiKz/micro-frontend-horizontal";
   return (
     <Router>
       <div className="text-3xl mx-auto max-w-6xl">
-        <Header />
+        <Header
+          titleText={"Horizontal Split"}
+          titleURL={"/"}
+          secondURL={"/user/-1"}
+          secondText={"Add User"}
+        />
         <div className="my-10">
           <Switch>
             <Route exact path="/" component={HomeContent} />
@@ -21,10 +28,7 @@ export default function PageRootLayout() {
             <Route path="/user/-1" component={UserDetailEditor} />
           </Switch>
         </div>
-        <Footer
-          users={[{ id: 1, name: "Hey", gender: "Male", country: "GER" }]}
-          onEdit={(id) => alert(id)}
-        />
+        <Footer url={FooterURL} text={"Github Repo"} />
       </div>
     </Router>
   );

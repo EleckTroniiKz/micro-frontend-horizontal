@@ -4,6 +4,7 @@ export default function InputField({ onChange, value, type, placeholder }) {
   return (
     <div className="w-full">
       <input
+        data-testid="input-field "
         className="w-full w-3/4 rounded-lg bg-red-600 p-2 text-white"
         value={value}
         type={type}
