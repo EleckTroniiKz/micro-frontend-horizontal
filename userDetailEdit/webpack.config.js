@@ -54,7 +54,7 @@ module.exports = {
         components: "components@http://localhost:3002/remoteEntry.js",
       },
       exposes: {
-        "./UserDetailEditor": "./src/UserDetailEditor.jsx",
+        "./UserHomeContent": "./src/UserHomeContent.jsx",
       },
       shared: {
         ...deps,
