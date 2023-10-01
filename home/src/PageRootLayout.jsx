@@ -7,6 +7,13 @@ import "./index.scss";
 import HomeContent from "home/HomeContent";
 import UserHomeContent from "userdetailseditor/UserHomeContent";
 
+/**
+ * The PageRootLayout Component, is a where every app in this project is directed to.
+ * This contains the browser router and the routes for those.
+ *
+ * if we are at the route "/" it will display the HomeContent component etc.
+ *
+ * */
 export default function PageRootLayout() {
   return (
     <BrowserRouter>
