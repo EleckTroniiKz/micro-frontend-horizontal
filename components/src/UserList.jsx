@@ -1,7 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function UserList({ users }) {
+import Button from "./Button.jsx";
+
+export default function UserList({ users, deleteUser }) {
+  const [deleted, setDeleted] = React.useState(false);
+
+  if (deleted) {
+    setDeleted(false);
+    location.reload();
+  }
+  if (!users || users.length === 0) {
+    return <div>There are no users!</div>;
+  }
+
   return (
     <div
       id="user-list"
@@ -21,6 +33,18 @@ export default function UserList({ users }) {
                     <div>Edit</div>
                   </Link>
                 )}
+              </td>
+              <td id="delete">
+                <Link to={`/`}>
+                  <Button
+                    onClick={() => {
+                      deleteUser(user.id);
+                      setDeleted(true);
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </Link>
               </td>
             </tr>
           ))}

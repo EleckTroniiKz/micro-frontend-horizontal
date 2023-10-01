@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Param } from '@nestjs/common';
 
 import users, { User } from '../users';
 
@@ -7,6 +7,7 @@ export class UsersController {
   constructor() {}
 
   private users = users;
+  private deletedIds = [];
 
   private setUsers(users: User[]): void {
     this.users = users;
@@ -20,14 +21,6 @@ export class UsersController {
   @Get(':id')
   async show(@Param('id') id: string): Promise<User> {
     return this.users.find((user) => user.id === parseInt(id));
-  }
-
-  @Post('/newSave/:user')
-  async saveNew(@Param('user') user: string): Promise<void> {
-    const newUser = JSON.parse(user);
-    newUser.id = this.users.length + 1;
-    this.setUsers([...this.users, newUser]);
-    return;
   }
 
   @Post('/save/:user')
@@ -56,6 +49,19 @@ export class UsersController {
     }
     this.setUsers(oldUsers);
 
+    return;
+  }
+
+  @Delete('/delete/:id')
+  async delete(@Param('id') id: string): Promise<User> {
+    const updatedUsers = [];
+    for (let i = 0; i < this.users.length; i++) {
+      if (this.users[i].id !== parseInt(id)) {
+        updatedUsers.push(this.users[i]);
+      }
+    }
+    this.deletedIds.push(parseInt(id));
+    this.setUsers(updatedUsers);
     return;
   }
 }

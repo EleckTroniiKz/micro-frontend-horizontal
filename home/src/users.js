@@ -15,3 +15,12 @@ export const saveUser = (user) => {
     body: JSON.stringify({ user }),
   });
 };
+
+export const deleteUser = (id) => {
+  fetch(`${API_SERVER}/users/delete/${JSON.stringify(id)}`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+};

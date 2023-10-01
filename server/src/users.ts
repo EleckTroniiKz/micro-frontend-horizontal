@@ -8,13 +8,6 @@ export interface User {
 
 const users: User[] = [
   {
-    id: 0,
-    name: 'Name',
-    gender: 'Gender',
-    country: 'Country',
-    height: 'Height',
-  },
-  {
     id: 1,
     name: 'John Doe',
     gender: 'Male',

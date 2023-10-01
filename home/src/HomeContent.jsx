@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ReactDOM } from "react-dom";
 
-import { getUsers } from "./users";
+import { getUsers, deleteUser } from "./users";
 
 import UserList from "components/UserList";
 import Header from "components/Header";
@@ -25,7 +25,7 @@ export default function HomeContent() {
         secondURL="/user/-1"
         secondText="Add User"
       />
-      <UserList users={users} />
+      <UserList users={users} deleteUser={deleteUser} />
       <Footer url={FooterURL} text="Github Repo" />
     </div>
   );
