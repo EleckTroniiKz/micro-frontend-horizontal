@@ -26,6 +26,7 @@ export default function UserDetailEditor() {
         <p className="w-1/4">Name: </p>
         <InputField
           type="text"
+          id="name"
           value={user.name}
           onChange={(e) => setUser({ ...user, name: e.target.value })}
         />
@@ -33,6 +34,7 @@ export default function UserDetailEditor() {
       <div className="flex m-5">
         <p className="w-1/4">Gender: </p>
         <InputField
+          id="gender"
           value={user.gender}
           onChange={(e) => setUser({ ...user, gender: e.target.value })}
         />
@@ -40,6 +42,7 @@ export default function UserDetailEditor() {
       <div className="flex m-5">
         <p className="w-1/4">Country: </p>
         <InputField
+          id="country"
           value={user.country}
           onChange={(e) => setUser({ ...user, country: e.target.value })}
         />
@@ -47,12 +50,13 @@ export default function UserDetailEditor() {
       <div className="flex m-5">
         <p className="w-1/4">Height: </p>
         <InputField
+          id="height"
           value={user.height}
           onChange={(e) => setUser({ ...user, height: e.target.value })}
         />
       </div>
       <Button onClick={() => saveUser(user)}>
-        <Link id="addUser" to="/">
+        <Link data-testid="addUser" to="/">
           SaveUser
         </Link>
       </Button>
